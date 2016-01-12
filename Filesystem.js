@@ -1,7 +1,7 @@
 'use strict';
 
-function Filesystem (fs) {
-  this.fs = fs;
+function Filesystem (filesystem) {
+  this.fs = filesystem || require('fs');
 }
 
 Filesystem.prototype.get = function(path) {
