@@ -1,5 +1,5 @@
 'use strict';
 
-var Http = require('./Http');
+var Filesystem = require('./Filesystem');
 
-module.exports = Http;
+module.exports = Filesystem;
