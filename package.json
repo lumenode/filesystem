@@ -13,7 +13,9 @@
   "keywords": [
     "ioc"
   ],
-  "author": "Iurii Krevnyi",
+  "author": {
+    "name": "Iurii Krevnyi"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lumenode/filesystem/issues"
@@ -27,5 +29,10 @@
     "mocha": "^2.3.4",
     "should": "^8.0.2",
     "sinon": "^1.17.2"
-  }
+  },
+  "gitHead": "f5f42448eb80675e9e51f2527ef3a48c7e458d93",
+  "readme": "ERROR: No README data found!",
+  "_id": "lumenode-filesystem@1.0.2",
+  "_shasum": "7e9503dcc56a13b4541acc6d400543061b2afa9f",
+  "_from": "lumenode-filesystem@*"
 }

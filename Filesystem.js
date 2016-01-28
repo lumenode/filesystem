@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 function Filesystem (filesystem) {
   this.fs = filesystem || require('fs');
 }
@@ -16,10 +18,10 @@ Filesystem.prototype.get = function(path) {
  */
 Filesystem.prototype.getFiles = function(dir, files_) {
   files_ = files_ || [];
-  var files = fs.readdirSync(dir);
+  var files = this.fs.readdirSync(dir);
   for (var i in files) {
     var name = dir + '/' + files[i];
-    if (fs.statSync(name).isDirectory()) {
+    if (this.fs.statSync(name).isDirectory()) {
       this.getFiles(name, files_);
     } else if (name.match(/\.js(?:on)?$/i)) {
       // for OS compatibility. On windows all '/' and '\' will convert to '\'.
