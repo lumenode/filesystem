@@ -1,22 +1,30 @@
 'use strict';
 
 require('should');
-var sinon = require('sinon');
-var Filesystem = require('../Filesystem');
+let sinon = require('sinon');
+let Filesystem = require('../Filesystem');
 
-describe('<Unit Test>', function () {
-  describe('Filesystem Spec', function () {
+describe('<Unit Test>', () => {
+  describe('Filesystem Spec', () => {
 
-    it('reads file content', function () {
-      var api = require('fs');
-      var mock = sinon.mock(api);
+    it('reads file content', () => {
+      let api = require('fs');
+      let mock = sinon.mock(api);
 
       mock.expects('readFileSync').once().returns('some content');
 
-      var filesystem = new Filesystem(api);
+      let filesystem = new Filesystem(api);
       filesystem.get('some-file.txt').should.be.eql('some content');
 
       mock.verify();
+    });
+
+    it('reads file structure recursively', () => {
+      let file = new Filesystem(require('fs'));
+
+      let result = file.getFiles(__dirname);
+      result.should.be.lengthOf(1);
+      result[0].should.match(/tests\/FilesystemSpec\.js/);
     });
 
   });
